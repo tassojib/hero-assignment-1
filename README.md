@@ -15,6 +15,7 @@
 
 `keyof` অপারেটরটি একটি অবজেক্ট টাইপের (যেমন interface বা type) সমস্ত প্রোপার্টির নামগুলোর একটি ইউনিয়ন টাইপ তৈরি করে। সহজ কথায়, এটি একটি অবজেক্টের কী (key) বা প্রোপার্টিগুলোর নাম স্ট্রিং লিটারাল হিসেবে বের করে নিয়ে আসে। উক্ত অবজেক্ট কী এর বাইরে কিছু ইনপুট দিলে TypeScript ইরোর দেখাবে। যেমনঃ
 
+```ts
 type User = {
   name: string;
   age: number;
@@ -27,7 +28,7 @@ type UserKeys = keyof User;
 function getValue(obj: User, key: UserKeys) {
   return obj[key];
 }
-
+```
 ---
 
 ### 2. Union এবং Intersection Types এর উদাহরণ
@@ -35,6 +36,7 @@ function getValue(obj: User, key: UserKeys) {
 **Union Type:**
 ইউনিয়ন টাইপের মাধ্যমে একটি ভেরিয়েবলে একাধিক ধরনের মান রাখা যায়। দুটি বা তার বেশি টাইপকে `|` দিয়ে যুক্ত করা হয়। ভেরিয়েবলটি ওই যুক্ত টাইপগুলোর মধ্যে যেকোনো একটির মান গ্রহণ করতে পারে। যেমনঃ
 
+```ts
 // Union Type
 type ID = number | string;
 
@@ -42,10 +44,12 @@ let userId: ID;
 userId = 301; // OK
 userId = "A401"; // OK
 // userId = true; // Error
+```
 
 **Intersection Type:**
 ইন্টারসেকশন টাইপের মাধ্যমে একাধিক টাইপকে একত্রিত করে একটি নতুন টাইপ তৈরি করা হয়, যেখানে নতুন টাইপটিতে সমস্ত টাইপের প্রোপার্টিগুলো থাকতে হবে। এটি `&` অপারেটর দিয়ে যুক্ত করা হয়। যেমনঃ
 
+```ts
 interface Student {
   name: string;
   age: number;
@@ -62,6 +66,7 @@ const student: StudentCaptain = {
   age: 18,
   role: "Captain",
 };
+```
 
 ---
 
